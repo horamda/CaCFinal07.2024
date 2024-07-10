@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Alta de Restaurante</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1 class="my-4">Alta de Restaurante</h1>
+        <form method="POST" enctype="multipart/form-data">
+            <div class="form-group">
+                <label for="name">Nombre:</label>
+                <input type="text" class="form-control" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="address">Dirección:</label>
+                <input type="text" class="form-control" id="address" name="address" required>
+            </div>
+            <div class="form-group">
+                <label for="province">Provincia:</label>
+                <input type="text" class="form-control" id="province" name="province" required>
+            </div>
+            <div class="form-group">
+                <label for="latitude">Latitud:</label>
+                <input type="number" step="any" class="form-control" id="latitude" name="latitude" required>
+            </div>
+            <div class="form-group">
+                <label for="longitude">Longitud:</label>
+                <input type="number" step="any" class="form-control" id="longitude" name="longitude" required>
+            </div>
+            <div class="form-group">
+                <label for="phone">Teléfono:</label>
+                <input type="text" class="form-control" id="phone" name="phone">
+            </div>
+            <div class="form-group">
+                <label for="website">Página Web:</label>
+                <input type="url" class="form-control" id="website" name="website">
+            </div>
+            <div class="form-group">
+                <label for="image">Imagen:</label>
+                <input type="file" class="form-control-file" id="image" name="image">
+            </div>
+            <button type="submit" class="btn btn-primary">Agregar</button>
+        </form>
+    </div>
+</body>
+</html>

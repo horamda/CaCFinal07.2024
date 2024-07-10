@@ -1,0 +1,46 @@
+<html>
+<head>
+    <title>Restaurantes</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+    <style>
+        .card-img-top {
+            max-height: 200px;
+            object-fit: cover;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="my-4">ABM de Restaurantes</h1>
+        <div class="mb-4">
+            <a href="{{ url_for('add_restaurant') }}" class="btn btn-success">Agregar Nuevo Restaurante</a>
+        </div>
+        
+        <div class="row">
+            {% for restaurant in restaurants %}
+            <div class="col-md-4">
+                <div class="card mb-4">
+                    {% if restaurant.image %}
+                    <img src="{{ url_for('static', filename='uploads/' + restaurant.image) }}" class="card-img-top" alt="{{ restaurant.name }}">
+                    {% endif %}
+                    <div class="card-body">
+                        <h5 class="card-title">{{ restaurant.name }}</h5>
+                        <p class="card-text">
+                            Dirección: {{ restaurant.address }}<br>
+                            Provincia: {{ restaurant.province }}<br>
+                            Teléfono: {{ restaurant.phone }}<br>
+                            <a href="{{ restaurant.website }}" target="_blank">Página Web</a>
+                        </p>
+                        <a href="/edit_restaurant/{{ restaurant.id }}" class="btn btn-primary">Editar</a>
+                        <form action="/delete_restaurant/{{ restaurant.id }}" method="post" class="d-inline">
+                            <button type="submit" class="btn btn-danger">Eliminar</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</body>
+</html>

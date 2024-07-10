@@ -1,0 +1,20 @@
+{% include 'defaults/head.html' %}
+
+<body>
+    <div class="container">
+        <h1 class="my-4">Bienvenido a Restaurante App</h1>
+        {% include 'defaults/navbar.html' %}
+        <nav>
+            <ul class="nav nav-pills">
+                <li class="nav-item">
+                    <a class="nav-link" href="/add_restaurant">Agregar Restaurante</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/restaurants">Ver Restaurantes</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</body>
+{% include 'defaults/footer.html' %}
+</html>

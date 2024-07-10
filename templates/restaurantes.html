@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!--Favicon-->
+    <link rel="icon" href="{{ url_for('static', filename='img/Logo-Web.png') }}" type="image/x-icon">
+
+    <!--Bootstrap-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/restaurant.css') }}">
+
+    <!--Font Awesome-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <!--Google fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Yeseva+One&display=swap" rel="stylesheet">
+
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css">
+
+    <style>
+        #map {
+            height: 400px;
+            width: 90%;
+            max-width: 1180px;
+            margin: auto;
+            border-radius: 15px;
+            margin-bottom: 25px;
+        }
+    </style>
+    <title>Restaurantes</title>
+</head>
+
+<body>
+    <!-- barra de navegacion + marca -->
+    <header>
+        <nav class="navbar navbar-expand-xl">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="{{ url_for('index') }}">ZeroGluten</a>
+
+                <!-- menu desplegable - offcanvas -->
+                <button class="navbar-toggler shadow-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!--contenido del menu-->
+                <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+                    <div class="offcanvas-header">
+                        <h5 class="offcanvas-title" id="offcanvasNavbarLabel">ZeroGluten</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                    </div>
+
+                    <div class="offcanvas-body">
+                        <!-- lista: items con submenu -->
+                        <ul class="navbar-nav justify-content-end flex-grow-1 pe-1">
+                            <!-- inicio -->
+                            <li class="nav-item">
+                                <a class="nav-link" aria-current="page" href="{{ url_for('index') }}">
+                                    Inicio
+                                </a>
+                            </li>
+                            <!-- restaurantes   -->
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Restaurantes
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li>
+                                        <a class="dropdown-item" href="{{ url_for('restaurants') }}">
+                                            Mapa interactivo
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <!-- tiendas -->
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Tienda
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li>
+                                        <a class="dropdown-item" href="tiendas.html">
+                                            Tiendas en tu provincia
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" href="#">
+                                            Productos online
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <!-- preg frecuentes -->
+                            <li class="nav-item">
+                                <a class="nav-link" aria-current="page" href="preguntas_frecuentes.html">
+                                    Preguntas frecuentes
+                                </a>
+                            </li>
+                            <!-- contacto -->
+                            <li class="nav-item">
+                                <a class="nav-link" aria-current="page" href="contacto.html">
+                                    Contacto
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Contenido Principal -->
+    <div class="container">
+        <h1 class="mt-4">Restaurantes</h1>
+        <h2 class="mt-5">Descubre los mejores restaurantes sin gluten en tu zona.</h2>
+        <!-- Tarjetas de Restaurantes -->
+        <div class="cards">
+            {% for restaurant in restaurants %}
+            <div class="card">
+                <img src="{{ url_for('static', filename='uploads/' + restaurant.image) }}" class="card-img-top" alt="{{ restaurant.name }}">
+                <div class="card-body">
+                    <h5 class="card-title">{{ restaurant.name }}</h5>
+                    <p class="card-text">
+                        <strong>Dirección:</strong> {{ restaurant.address }}<br>
+                        <strong>Teléfono:</strong> {{ restaurant.phone }}<br>
+                        <strong>Página Web:</strong> <a href="{{ restaurant.website }}" target="_blank">{{ restaurant.website }}</a><br>
+                        <strong>Provincia:</strong> {{ restaurant.province }}
+                    </p>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <!-- scritps -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+    <script src="{{ url_for('static', filename='js/restaurant.js') }}"></script>
+
+    <br>
+    <br>
+    <!-- Selector de Provincia -->
+    <div class="targetprovincias">
+        <div class="mb-3">
+            <h3><label for="provincia" class="form-label">Selecciona una provincia:</label></h3>
+            <select class="form-select" id="provincia">
+                <option value="">Todas las provincias</option>
+                <option value="buenosaires">Buenos Aires</option>
+                <option value="catamarca">Catamarca</option>
+                <option value="chaco">Chaco</option>
+                <option value="chubut">Chubut</option>
+                <option value="cordoba">Córdoba</option>
+                <option value="corrientes">Corrientes</option>
+                <option value="entrerios">Entre Ríos</option>
+                <option value="formosa">Formosa</option>
+                <option value="jujuy">Jujuy</option>
+                <option value="lapampa">La Pampa</option>
+                <option value="larioja">La Rioja</option>
+                <option value="mendoza">Mendoza</option>
+                <option value="misiones">Misiones</option>
+                <option value="neuquen">Neuquén</option>
+                <option value="rionegro">Río Negro</option>
+                <option value="salta">Salta</option>
+                <option value="sanjuan">San Juan</option>
+                <option value="sanluis">San Luis</option>
+                <option value="santacruz">Santa Cruz</option>
+                <option value="santafe">Santa Fe</option>
+                <option value="santiagodelestero">Santiago del Estero</option>
+                <option value="tierradelfuego">Tierra del Fuego</option>
+                <option value="tucuman">Tucumán</option>
+            </select>
+        </div>
+    </div>
+
+    <!-- Mapa interactivo -->
+    <div id="map"></div>
+
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script>
+        // Inicializa el mapa centrado en Argentina
+        var map = L.map('map').setView([-38.416097, -63.616672], 4); // Coordenadas de Argentina
+
+        // Añade una capa de mapa base (usando OpenStreetMap)
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+
+        // Añade marcadores de ciudades importantes en Argentina
+        L.marker([-34.603722, -58.381592]).addTo(map).bindPopup('Buenos Aires -Restaurante sin gluten 1.');
+        L.marker([-31.420083, -64.188776]).addTo(map).bindPopup('Córdoba - Restaurante sin gluten 2.');
+        L.marker([-32.946818, -60.639316]).addTo(map).bindPopup('Rosario - Restaurante sin gluten 3.');
+        L.marker([-32.889458, -68.845839]).addTo(map).bindPopup('Mendoza - Restaurante sin gluten 4.');
+        L.marker([-34.921450, -57.954533]).addTo(map).bindPopup('La Plata - Restaurante sin gluten 5 .');
+        L.marker([-26.808285, -65.217590]).addTo(map).bindPopup('San Miguel de Tucumán - Restaurante sin gluten 6.');
+        L.marker([-38.005477, -57.542611]).addTo(map).bindPopup('Mar del Plata - Restaurante sin gluten 7.');
+        L.marker([-24.782932, -65.423197]).addTo(map).bindPopup('Salta - Restaurante sin gluten 8.');
+        L.marker([-31.633329, -60.700000]).addTo(map).bindPopup('Santa Fe - Restaurante sin gluten 9.');
+        L.marker([-31.537500, -68.536390]).addTo(map).bindPopup('San Juan - Restaurante sin gluten 10.');
+    </script>
+    <br>
+
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-2">
+                    <span class="title-empresa">Nuestra empresa</span>
+                    <ul class="footer-list">
+                        <li><a href="quienes_somos.html">Quiénes Somos</a></li>
+                        <li><a href="">Trabaja con Nosotros</a></li>
+                        <li><a href="">Términos y Condiciones</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-2">
+                    <span class="title-servicios">Nuestros servicios</span>
+                    <ul class="footer-list">
+                        <li><a href="">Restaurantes patrocinados</a></li>
+                        <li><a href="">Tiendas patrocinadas</a></li>
+                        <li><a href="">Mapa interactivo</a></li>
+                        <li><a href="">Blog - Recetario</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-2">
+                    <span class="title-ayuda">¿Te ayudamos?</span>
+                    <ul class="footer-list">
+                        <li><a href="">Preguntas frecuentes</a></li>
+                        <li><a href="">Contacto</a></li>
+                        <li><a href="">Garantías y Devoluciones</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-2">
+                    <span class="title-redes">Nuestras redes</span>
+                    <div class="d-flex flex-wrap"></div>
+                    <a href="https://www.facebook.com/Paliii.17/" class="social-icon"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="" class="social-icon"><i class="fa-brands fa-x-twitter"></i></a>
+                    <a href="" class="social-icon"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="" class="social-icon"><i class="fa-brands fa-tiktok"></i></a>
+                    <a href="" class="social-icon"><i class="fa-brands fa-pinterest"></i></a>
+                </div>
+                <div class="col-md-2 offset-md-1">
+                    <span class="quinta-columna"></span>
+                    <ul class="footer-list">
+                        <li><a href="">Política de Privacidad</a></li>
+                        <li><a href="">Política de Cookies</a></li>
+                        <li><a href="">Configuración de Cookies</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <hr class="footer-divider">
+                    <p class="footer-brand">ZeroGluten &copy; Todos los derechos reservados. 2024.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>

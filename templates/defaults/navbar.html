@@ -1,0 +1,81 @@
+<!-- barra de navegacion + marca -->
+<header>
+    <nav class="navbar navbar-expand-xl">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/">ZeroGluten</a>
+
+            <!-- menu desplegable - offcanvas -->
+            <button class="navbar-toggler shadow-none" type="button" data-bs-toggle="offcanvas"
+                data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!--contenido del menu-->
+            <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar"
+                aria-labelledby="offcanvasNavbarLabel">
+                <div class="offcanvas-header">
+                    <h5 class="offcanvas-title" id="offcanvasNavbarLabel">ZeroGluten</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                </div>
+
+                <div class="offcanvas-body">
+                    <!-- lista: items con submenu -->
+                    <ul class="navbar-nav justify-content-end flex-grow-1 pe-1">
+                        <!-- inicio -->
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="/">
+                                Inicio
+                            </a>
+                        </li>
+                        <!-- restaurantes   -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                                aria-expanded="false">
+                                Restaurantes
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a href="{{ url_for('restaurantes') }}" class="btn btn-primary">Restaurantes</a>
+                                        Mapa interactivo
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <!-- tiendas -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                                aria-expanded="false">
+                                Tienda
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a class="dropdown-item" href="/tiendas">
+                                        Tiendas en tu provincia
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="#">
+                                        Productos online
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <!-- preg frecuentes -->
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="preguntas_frecuentes.html">
+                                Preguntas frecuentes
+                            </a>
+                        </li>
+                        <!-- contacto -->
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="contacto.html">
+                                Contacto
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+</header>

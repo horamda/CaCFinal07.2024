@@ -1,0 +1,20 @@
+{% block title %}{% endblock %}
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+{% block content %}
+<div class="container mt-5">
+    <h1 class="title-1">Panel del administrador</h1>
+    <ul class="list-group">
+         <li class="list-group-item">
+            <a href="#">ABM Productos (Próximamente)</a>
+        </li>
+        <li class="list-group-item">
+            <a href="{{ url_for('restaurants') }}">ABM Restaurantes</a>
+        </li>
+       
+        <li class="list-group-item">
+            <a href="#">ABM Información (Próximamente)</a>
+        </li>
+    </ul>
+</div>
+{% endblock %}

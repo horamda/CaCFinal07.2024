@@ -1,0 +1,407 @@
+/* fonts by google NO ELIMINAR*/
+.yeseva-one-regular {
+    font-family: "Yeseva One", serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+
+/* nota para josefin-sans--> <uniquifier>: Use a unique and descriptive class name
+<weight>: Use a value from 100 to 700 */
+  
+.josefin-sans- /* <uniquifier> */{
+    font-family: "Josefin Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 100;
+    font-style: normal;
+}
+
+/*all html - navbar + footer*/
+.navbar {
+    width: 100%; 
+    height: 100px;
+    background-color: rgb(22, 33, 20); 
+    color: rgb(255, 240, 210); 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    padding: 0 20px; 
+}
+.navbar-brand {
+    font-family: 'Yeseva One', cursive; 
+    font-size: 30px; 
+    width: 240px; 
+    height: 50px; 
+    margin: 0; 
+    color: rgb(255, 240, 210);
+}
+.navbar-toggler {
+    position: relative;
+    border: 0;
+    transition: .5s ease-in-out;
+    background-color: rgb(255, 240, 210);
+    color: rgb(255, 240, 210);
+}
+
+.navbar-toggler,
+.navbar-toggler:focus,
+.navbar-toggler:active,
+.navbar-toggler-icon:focus {
+    outline: none;
+    box-shadow: none;
+    border: 0;
+}
+  
+.navbar-toggler span {
+    margin: 0;
+    padding: 0;
+} 
+  
+.toggler-icon { 
+    display: block;
+    position: absolute;
+    height: 3px;
+    width: 100%;
+    background-color: rgb(255, 240, 210);
+    color: rgb(255, 240, 210);
+    border-radius: 1px;
+    opacity: 1;
+    transition: .25s ease-in-out;
+}
+  
+.btn-close {
+   background-color: rgb(255, 240, 210);
+   box-shadow: none;  
+}
+  
+.offcanvas-header{
+    background-color: rgb(22, 33, 20);
+}
+  
+.offcanvas-title{
+    font-family: 'Yeseva One', cursive;
+    font-size: 25px;
+    color: rgb(255, 240, 210);
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    padding: auto;
+}
+  
+.offcanvas-body{
+    background-color: rgba(22, 33, 20, 0.85);
+}
+  
+.navbar-nav {
+    list-style: none; 
+    display: flexbox; 
+}
+  
+.nav-item {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 22px;
+    color: rgb(255, 240, 210);
+    margin-right: 26px; 
+}
+  
+.nav-link {
+    font-family: 'Josefin Sans', sans-serif; 
+    font-size: 18px; 
+    color: rgb(255, 240, 210);
+    text-decoration: none; 
+}
+
+.navbar-toggler-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 16px;
+}
+  
+.dropdown-menu{
+    background-color: rgba(255, 240, 210, 0.5);
+} */
+  
+.dropdown-item{
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 16px;
+    color: rgba(255, 240, 210, 0.5);
+}
+
+/*footer*/
+footer {
+    width: 100%;
+    height: 100%;
+    background-color: rgb(22, 33, 20); 
+    color: rgb(255, 240, 210); /*all*/
+    padding: 50px 100px 16px 100px; 
+}
+  
+.title-empresa,
+.title-servicios,
+.title-ayuda,
+.title-redes {
+    width: 80%;
+    height: 24px;
+    flex-grow: 0;
+    margin: 0 0 20px;
+    font-family: 'Josefin Sans', sans-serif; 
+    font-weight: bold; 
+    font-size: 20px;
+}
+  
+.quinta-columna {
+    font-family: 'Josefin Sans', sans-serif;
+}
+  
+.footer-list a {
+    font-family: 'Josefin Sans', sans-serif; 
+    font-weight: normal; 
+    font-size: 14px;
+    color: rgb(255, 240, 210); 
+    text-decoration: none; 
+    transition: text-decoration 0.2s; 
+    margin-bottom: 5px;
+}
+  
+.footer-list a:hover {
+    text-decoration: underline; 
+}
+  
+.footer-list{
+    list-style: none;
+    padding-left: 0;
+}
+  
+.social-icon {
+    color: rgb(255, 240, 210); 
+    margin-right: 5px;
+}
+
+.footer-brand {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 14px;
+    color: rgb(255, 240, 210);
+}
+
+/*html index - body */
+body{
+    background-color: #284123;
+}
+
+.redes-social{
+    font-family: 'Josefin Sans', sans-serif;
+    background-color: rgb(22, 33, 20);
+    color: rgb(255, 240, 210); 
+}
+
+.caja-contenido{
+    font-family: 'Josefin Sans', sans-serif;
+    color:rgb(255, 240, 210);
+    background-color: #284123;
+}
+
+.img-portada{
+    width: 1120.2px;
+    height: 360.7px;
+    border-radius: 60px;
+    mix-blend-mode:luminosity;
+    filter: blur(0,7px);
+    -webkit-filter: blur(0,7px);
+}
+
+.texto-portada{
+    color: #000;
+}
+
+.tarriba{
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 30px;
+    font-weight: bold;
+    text-align: center;
+    max-width: 100%;
+    width: 100%;
+    margin-top: 20px;
+}
+
+.tmedio{
+    font-family: "Yeseva One", serif;
+    font-size: 80px;
+    text-align: center;
+    max-width: 100%;
+    width: 100%;
+}
+
+.tabajo{
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 25px;
+    font-weight: bold;
+    text-align: center;
+    max-width: 100%;
+    width: 100%;
+}
+
+.carousel-item{
+    background-color: #284123;
+    padding: 5%;
+}
+
+.wrapper{
+    max-width: 65%;
+    margin: 0 auto;
+    margin-bottom: 20px;
+}
+
+.news-main{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2fr 1fr);
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+}
+.news-main article{
+    padding: 20px;
+    }
+    .video{
+        border-radius: 20px;
+        transition: transform 0.3s ease;
+        }
+        .col:hover .video{
+            -webkit-transform:scale(1.2);
+            transform:scale(1.2);
+        }
+
+.tz, .co, .tp{
+    font-family:'Josefin Sans', sans-serif;
+    color:rgb(255, 240, 210);
+    font-size: 25px;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.ti{
+    font-family:'Josefin Sans', sans-serif;
+    font-size: 18px;
+}
+
+.prov{
+    font-family:'Josefin Sans', sans-serif;
+    color:rgb(255, 240, 210);
+    font-size: 20px;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.ctienda{
+    font-family:'Josefin Sans', sans-serif;
+    color: #000;
+    text-decoration: none;
+    }
+
+.cong{
+    position: relative;
+    top: 30px;
+    left: 0; 
+    font-size: 20px;
+    }
+    .img-cong{
+    position:absolute;
+    height: auto;
+    max-width: 43%;
+    bottom: 0;
+    right: 0;
+    }
+
+.beb{
+    position: relative;
+    top: 20px;
+    left: 20px;
+    font-size: 20px;
+    }
+    .img-beb{
+    position: absolute;
+    height: auto;
+    max-width: 90%;
+    bottom: 0;
+    right: 0;
+    }
+
+.nuev{
+    position: relative;
+    top: 90px;
+    left: 20px;
+    font-size: 20px;
+    }
+    .img-nuev{
+    position: absolute;
+    height: auto;
+    max-width: 99%;
+    bottom: 80px;
+    right: 1px;
+    }
+ 
+.alm{
+    position: relative;
+    top: 30px;
+    left: 45px;
+    font-size: 20px;
+    }
+    .img-alm{
+    position: absolute;
+    height: auto;
+    max-width: 99%;
+    bottom: 70px;
+    right: 1px;
+    }
+
+.supl{
+    position: relative;
+    top: 30px;
+    left: 0px;
+    font-size: 20px;
+    }
+    .img-supl{
+    position: absolute;
+    height: auto;
+    max-width: 60%;
+    bottom: 0px;
+    right: 9px;
+    }
+
+.fres{
+    position: relative;
+    top: 20px;
+    left: 20px;
+    font-size: 20px;
+    }
+    .img-fres{
+    position: absolute;
+    height: auto;
+    max-width: 90%;
+    bottom: 0px;
+    right: 10px;
+    }
+
+.lmv{
+    position: relative;
+    top: 30px;
+    left: 10px;
+    font-size: 20px;
+    }
+    .img-lmv{
+    position: absolute;
+    height: auto;
+    max-width: 82%;
+    bottom: 0px;
+    right: 15px;
+    }
+
+
+.img-vb, .img-hel, .img-notc{
+    max-width: 60%
+}
+.img-slide {
+    width: auto; /* Ajusta a 100% del contenedor padre, o usa un porcentaje específico según el diseño */
+    height:auto; /* Mantiene la proporción de la imagen */
+
+}
